@@ -11,15 +11,12 @@ public class Point {
         this.p2 = p2;
     }
 
-    public double distance() {
-        double x1 = 4;
-        double y1 = 8;
-        double x2 = 6;
-        double y2 = 5;
+    public static double distance() {
+        Point.distance();
+        return Math.sqrt(p1.p2 - p1.p1) + Math.sqrt(p2.p2 - p1.p1)
+    }
 
-        double p1 = Math.abs(y2 - y1);
-        double p2 = Math.abs(x2 - x1);
-        return Math.hypot(p1, p2);
-       // return Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+    public double distance(Point p) {
+        p1.distance(p2);
     }
 }
