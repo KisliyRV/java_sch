@@ -1,18 +1,16 @@
 package stqa.sandbox;
 
 public class Point {
+    double x ;
+    double y ;
 
-    public double p1;
-    public double p2;
-
-
-    public Point(double p1, double p2) {
-        this.p1 = p1;
-        this.p2 = p2;
+    public Point(double x, double y){
+        this.x = x;
+        this.y = y;
     }
+    public double distance(Point p){
 
-    public double distance() {
-        return this.p1 * this.p2;
+        double a = Math.sqrt( Math.pow((p.x - this.x), 2)+Math.pow((p.y - this.y), 2));
+        return a;
     }
-
 }
