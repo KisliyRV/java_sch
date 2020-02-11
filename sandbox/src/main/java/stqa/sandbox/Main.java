@@ -4,12 +4,14 @@ public class Main {
 
     public static void main(String[] args){
 
-        PointTwo p = new PointTwo(2.0, 5.0);
-        System.out.println(p.p1 + " + " + p.p2 + " = " + p.distanceTwo());
+        PointTwo p1 = new PointTwo(2, 5);
+        PointTwo p2 = new PointTwo(4.0, 8.0);
+        System.out.println(p1.p1 + " + " + p2.p2 + " = " + distanceTwo(p1, p2));
 
     }
 
-    public static double distanceTwo(Point p1, Point p2) {
-        return Math.sqrt(p1.p2 - p1.p1) + Math.sqrt(p2.p2 - p1.p1);
+    public static double distanceTwo(PointTwo p1, PointTwo p2) {
+        return Math.sqrt(p1.p2 - p1.p1) + Math.sqrt(p2.p2 - p2.p1);
     }
+    
 }
