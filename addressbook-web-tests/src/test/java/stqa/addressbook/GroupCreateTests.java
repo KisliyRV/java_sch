@@ -23,6 +23,10 @@ public class GroupCreateTests {
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     driver.get("http://addressbook.com/group.php");
+    login();
+  }
+
+  private void login() {
     driver.findElement(By.name("user")).click();
     driver.findElement(By.name("user")).clear();
     driver.findElement(By.name("user")).sendKeys("admin");
@@ -35,8 +39,23 @@ public class GroupCreateTests {
   @Test
   public void testGroupCreate() throws Exception {
 
-    driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.name("new")).click();
+    gotoGroupPage(); //Переходим на страницу группы
+    initGroupCreation(); //Создаем тестовую группу
+    fillGroupForm(); //Заполняем тестовую группу
+    submitGroupCreation(); //применяем изменения
+    gotoGroupPage();
+    returnLogaut(); //выходим из системы
+  }
+
+  private void returnLogaut() {
+    driver.findElement(By.linkText("Logout")).click();
+  }
+
+  private void submitGroupCreation() {
+    driver.findElement(By.name("submit")).click();
+  }
+
+  private void fillGroupForm() {
     driver.findElement(By.name("group_name")).click();
     driver.findElement(By.name("group_name")).clear();
     driver.findElement(By.name("group_name")).sendKeys("test1");
@@ -46,9 +65,14 @@ public class GroupCreateTests {
     driver.findElement(By.name("group_footer")).click();
     driver.findElement(By.name("group_footer")).clear();
     driver.findElement(By.name("group_footer")).sendKeys("test3");
-    driver.findElement(By.name("submit")).click();
+  }
+
+  private void initGroupCreation() {
+    driver.findElement(By.name("new")).click();
+  }
+
+  private void gotoGroupPage() {
     driver.findElement(By.linkText("groups")).click();
-    driver.findElement(By.linkText("Logout")).click();
   }
 
   @AfterClass(alwaysRun = true)
