@@ -9,6 +9,5 @@ public class ContactDeletionTest extends TestBase {
         app.getContactHelper().homeContact();
         app.getContactHelper().checkContact();
         app.getContactHelper().submitContactDeletion();
-
     }
 }
