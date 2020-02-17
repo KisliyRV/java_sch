@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import stqa.addressbook.model.GroupData;
 
-public class GroupHellper extends HelperBase {
+public class GroupHelper extends HelperBase {
 
-    public GroupHellper(WebDriver driver) {
+    public GroupHelper(WebDriver driver) {
         super(driver);
 
     }
@@ -31,5 +31,13 @@ public class GroupHellper extends HelperBase {
 
     public void selectGroup() {
         click(By.name("selected[]"));
+    }
+
+    public void initGroupModification() {
+        click(By.name("edit"));
+    }
+
+    public void subminGroupModification() {
+        click(By.name("update"));
     }
 }

@@ -14,13 +14,13 @@ public class ApplicationManager {
     private ContactHelper contactHelper;
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
-    private GroupHellper groupHellper;
+    private GroupHelper groupHelper;
 
     public void init() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://addressbook.com/group.php");
-        groupHellper = new GroupHellper(driver);
+        groupHelper = new GroupHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         contactHelper= new ContactHelper(driver);
@@ -41,8 +41,8 @@ public class ApplicationManager {
       }
     }
 
-    public GroupHellper getGroupHellper() {
-        return groupHellper;
+    public GroupHelper getGroupHelper() {
+        return groupHelper;
     }
 
     public NavigationHelper getNavigationHelper() {
