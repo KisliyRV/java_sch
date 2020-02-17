@@ -13,35 +13,21 @@ public class ContactHelper extends HelperBase {
 
     public void submitNewContact() {
         click(By.linkText("home"));
-   //   driver.findElement(By.linkText("home")).click();
     }
 
     public void fillNewContact(AddressData addressData) {
-      driver.findElement(By.name("firstname")).click();
-      driver.findElement(By.name("firstname")).clear();
-      driver.findElement(By.name("firstname")).sendKeys(addressData.getFirstname());
-      driver.findElement(By.name("lastname")).clear();
-      driver.findElement(By.name("lastname")).sendKeys(addressData.getLastname());
-      driver.findElement(By.name("address")).click();
-      driver.findElement(By.name("address")).clear();
-      driver.findElement(By.name("address")).sendKeys(addressData.getAddress());
-      driver.findElement(By.name("mobile")).click();
-      driver.findElement(By.name("mobile")).clear();
-      driver.findElement(By.name("mobile")).sendKeys(addressData.getMobilephone());
-      driver.findElement(By.name("email")).click();
-      driver.findElement(By.name("email")).clear();
-      driver.findElement(By.name("email")).sendKeys(addressData.getEmail());
-      driver.findElement(By.name("bday")).click();
-      new Select(driver.findElement(By.name("bday"))).selectByVisibleText(addressData.getBday());
-      driver.findElement(By.name("bmonth")).click();
-      new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(addressData.getBmonth());
-      driver.findElement(By.name("byear")).click();
-      driver.findElement(By.name("byear")).clear();
-      driver.findElement(By.name("byear")).sendKeys(addressData.getYear());
-      driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+      type(By.name("firstname"),addressData.getFirstname());
+      type(By.name("lastname"), addressData.getLastname());
+      type(By.name("address"), addressData.getAddress());
+      type(By.name("mobile"), addressData.getMobilephone());
+      type(By.name("email"), addressData.getEmail());
+      select(By.name("bday"), addressData.getBday());
+      select(By.name("bmonth"), addressData.getBmonth());
+      type(By.name("byear"), addressData.getYear());
+      click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
     public void gotoAddNewContact() {
-        driver.findElement(By.linkText("add new")).click();
+        click(By.linkText("add new"));
     }
 }

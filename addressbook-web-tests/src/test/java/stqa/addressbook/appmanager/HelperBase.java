@@ -3,6 +3,7 @@ package stqa.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
     protected WebDriver driver;
@@ -30,4 +31,8 @@ public class HelperBase {
         }
     }
 
+    protected void select(By locator, String text) {
+        driver.findElement(locator).click();
+        new Select(driver.findElement(locator)).selectByVisibleText(text);
+    }
 }
