@@ -11,6 +11,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void submitNewContact() {
+        click(By.name("submit"));
         click(By.linkText("home"));
     }
 
@@ -23,7 +24,6 @@ public class ContactHelper extends HelperBase {
       select(By.name("bday"), addressData.getBday());
       select(By.name("bmonth"), addressData.getBmonth());
       type(By.name("byear"), addressData.getYear());
-      click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
     public void gotoAddNewContact() {
