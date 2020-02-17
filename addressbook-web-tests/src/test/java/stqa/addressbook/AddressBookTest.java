@@ -37,7 +37,7 @@ public class AddressBookTest {
   @Test
   public void testAddressBook() throws Exception {
     gotoAddNewContact();
-    fillNewContact("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "15", "August");
+    fillNewContact(new AddressData("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "15", "August"));
     submitNewContact();
     returnLogaut(); //выходим из системы
   }
@@ -46,28 +46,28 @@ public class AddressBookTest {
     driver.findElement(By.linkText("home")).click();
   }
 
-  private void fillNewContact(String firstname, String lastname, String address, String mobilephone, String email, String year, String bday, String bmonth) {
+  private void fillNewContact(AddressData addressData) {
     driver.findElement(By.name("firstname")).click();
     driver.findElement(By.name("firstname")).clear();
-    driver.findElement(By.name("firstname")).sendKeys(firstname);
+    driver.findElement(By.name("firstname")).sendKeys(addressData.getFirstname());
     driver.findElement(By.name("lastname")).clear();
-    driver.findElement(By.name("lastname")).sendKeys(lastname);
+    driver.findElement(By.name("lastname")).sendKeys(addressData.getLastname());
     driver.findElement(By.name("address")).click();
     driver.findElement(By.name("address")).clear();
-    driver.findElement(By.name("address")).sendKeys(address);
+    driver.findElement(By.name("address")).sendKeys(addressData.getAddress());
     driver.findElement(By.name("mobile")).click();
     driver.findElement(By.name("mobile")).clear();
-    driver.findElement(By.name("mobile")).sendKeys(mobilephone);
+    driver.findElement(By.name("mobile")).sendKeys(addressData.getMobilephone());
     driver.findElement(By.name("email")).click();
     driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys(email);
+    driver.findElement(By.name("email")).sendKeys(addressData.getEmail());
     driver.findElement(By.name("bday")).click();
-    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(bday);
+    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(addressData.getBday());
     driver.findElement(By.name("bmonth")).click();
-    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(bmonth);
+    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(addressData.getBmonth());
     driver.findElement(By.name("byear")).click();
     driver.findElement(By.name("byear")).clear();
-    driver.findElement(By.name("byear")).sendKeys(year);
+    driver.findElement(By.name("byear")).sendKeys(addressData.getYear());
     driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
   }
 
