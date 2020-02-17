@@ -1,30 +1,25 @@
-package stqa.addressbook;
+package stqa.addressbook.appmanager;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import stqa.addressbook.model.AddressData;
+import stqa.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.fail;
-
-public class TestBase {
-
+public class ApplicationManager {
     WebDriver driver;
-    private String baseUrl;
-    private boolean acceptNextAlert = true;
-    private StringBuffer verificationErrors = new StringBuffer();
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
-      driver = new ChromeDriver();
-      baseUrl = "https://www.google.com/";
-      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    public void init() {
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-      driver.get("http://addressbook.com/group.php");
-      login("admin", "secret");
+        driver.get("http://addressbook.com/group.php");
+        login("admin", "secret");
     }
 
     private void login(String username, String password) {
@@ -37,11 +32,11 @@ public class TestBase {
       driver.findElement(By.id("LoginForm")).submit();
     }
 
-    protected void submitNewContact() {
+    public void submitNewContact() {
       driver.findElement(By.linkText("home")).click();
     }
 
-    protected void fillNewContact(AddressData addressData) {
+    public void fillNewContact(AddressData addressData) {
       driver.findElement(By.name("firstname")).click();
       driver.findElement(By.name("firstname")).clear();
       driver.findElement(By.name("firstname")).sendKeys(addressData.getFirstname());
@@ -66,19 +61,19 @@ public class TestBase {
       driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
 
-    protected void gotoAddNewContact() {
+    public void gotoAddNewContact() {
       driver.findElement(By.linkText("add new")).click();
     }
 
-    protected void returnLogaut() {
+    public void returnLogaut() {
       driver.findElement(By.linkText("Logout")).click();
     }
 
-    protected void submitGroupCreation() {
+    public void submitGroupCreation() {
       driver.findElement(By.name("submit")).click();
     }
 
-    protected void fillGroupForm(GroupData groupData) {
+    public void fillGroupForm(GroupData groupData) {
       driver.findElement(By.name("group_name")).click();
       driver.findElement(By.name("group_name")).clear();
       driver.findElement(By.name("group_name")).sendKeys(groupData.getName());
@@ -90,21 +85,16 @@ public class TestBase {
       driver.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
     }
 
-    protected void initGroupCreation() {
+    public void initGroupCreation() {
       driver.findElement(By.name("new")).click();
     }
 
-    protected void gotoGroupPage() {
+    public void gotoGroupPage() {
       driver.findElement(By.linkText("groups")).click();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() throws Exception {
-      driver.quit();
-      String verificationErrorString = verificationErrors.toString();
-      if (!"".equals(verificationErrorString)) {
-        fail(verificationErrorString);
-      }
+    public void stop() {
+        driver.quit();
     }
 
     private boolean isElementPresent(By by) {
@@ -125,26 +115,11 @@ public class TestBase {
       }
     }
 
-    private String closeAlertAndGetItsText() {
-      try {
-        Alert alert = driver.switchTo().alert();
-        String alertText = alert.getText();
-        if (acceptNextAlert) {
-          alert.accept();
-        } else {
-          alert.dismiss();
-        }
-        return alertText;
-      } finally {
-        acceptNextAlert = true;
-      }
-    }
-
-    protected void deleteSelectedGroups() {
+    public void deleteSelectedGroups() {
       driver.findElement(By.name("delete")).click();
     }
 
-    protected void selectGroup() {
+    public void selectGroup() {
       driver.findElement(By.name("selected[]")).click();
     }
 }
