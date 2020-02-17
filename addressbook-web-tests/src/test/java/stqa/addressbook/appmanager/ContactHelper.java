@@ -5,16 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import stqa.addressbook.model.AddressData;
 
-public class ContactHelper {
-    private WebDriver driver;
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
-
-        this.driver = driver;
+        super(driver);
     }
 
     public void submitNewContact() {
-      driver.findElement(By.linkText("home")).click();
+        click(By.linkText("home"));
+   //   driver.findElement(By.linkText("home")).click();
     }
 
     public void fillNewContact(AddressData addressData) {
