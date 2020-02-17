@@ -52,4 +52,8 @@ public class ApplicationManager {
     public ContactHelper getContactHelper() {
         return contactHelper;
     }
+
+    public WebDriver.TargetLocator switchTo() {
+        return null;
+    }
 }
