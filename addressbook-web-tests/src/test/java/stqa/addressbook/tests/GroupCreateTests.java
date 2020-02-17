@@ -14,7 +14,6 @@ public class GroupCreateTests extends TestBase {
     app.getGroupHellper().fillGroupForm(new GroupData("test1", "test2", "test3")); //Заполняем тестовую группу
     app.getGroupHellper().submitGroupCreation(); //применяем изменения
     app.getNavigationHelper().gotoGroupPage();
-    app.returnLogaut(); //выходим из системы
   }
 
 }
