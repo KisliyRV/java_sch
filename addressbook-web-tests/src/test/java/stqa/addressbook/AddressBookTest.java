@@ -1,13 +1,11 @@
 package stqa.addressbook;
 
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class AddressBookTest {
@@ -39,70 +37,38 @@ public class AddressBookTest {
   @Test
   public void testAddressBook() throws Exception {
     gotoAddNewContact();
-    addingFirstName();
-    addingLastName();
-    addingAddress();
-    addingMobile();
-    addingEmail();
-    addingBday();
-    addingBmoth();
-    addingByear();
-    enter();
-    clickHome();
+    fillNewContact("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "15", "August");
+    submitNewContact();
     returnLogaut(); //выходим из системы
   }
 
-  private void clickHome() {
+  private void submitNewContact() {
     driver.findElement(By.linkText("home")).click();
   }
 
-  private void enter() {
-    driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
-  }
-
-  private void addingByear() {
-    driver.findElement(By.name("byear")).click();
-    driver.findElement(By.name("byear")).clear();
-    driver.findElement(By.name("byear")).sendKeys("1995");
-  }
-
-  private void addingBmoth() {
-    driver.findElement(By.name("bmonth")).click();
-    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText("August");
-  }
-
-  private void addingBday() {
-    driver.findElement(By.name("bday")).click();
-    new Select(driver.findElement(By.name("bday"))).selectByVisibleText("1");
-  }
-
-  private void addingEmail() {
-    driver.findElement(By.name("email")).click();
-    driver.findElement(By.name("email")).clear();
-    driver.findElement(By.name("email")).sendKeys("test@gmail.com");
-  }
-
-  private void addingMobile() {
-    driver.findElement(By.name("mobile")).click();
-    driver.findElement(By.name("mobile")).clear();
-    driver.findElement(By.name("mobile")).sendKeys("555444000111");
-  }
-
-  private void addingAddress() {
-    driver.findElement(By.name("address")).click();
-    driver.findElement(By.name("address")).clear();
-    driver.findElement(By.name("address")).sendKeys("Test st. 11");
-  }
-
-  private void addingLastName() {
-    driver.findElement(By.name("lastname")).clear();
-    driver.findElement(By.name("lastname")).sendKeys("Kisliy");
-  }
-
-  private void addingFirstName() {
+  private void fillNewContact(String firstname, String lastname, String address, String mobilephone, String email, String year, String bday, String bmonth) {
     driver.findElement(By.name("firstname")).click();
     driver.findElement(By.name("firstname")).clear();
-    driver.findElement(By.name("firstname")).sendKeys("Roman");
+    driver.findElement(By.name("firstname")).sendKeys(firstname);
+    driver.findElement(By.name("lastname")).clear();
+    driver.findElement(By.name("lastname")).sendKeys(lastname);
+    driver.findElement(By.name("address")).click();
+    driver.findElement(By.name("address")).clear();
+    driver.findElement(By.name("address")).sendKeys(address);
+    driver.findElement(By.name("mobile")).click();
+    driver.findElement(By.name("mobile")).clear();
+    driver.findElement(By.name("mobile")).sendKeys(mobilephone);
+    driver.findElement(By.name("email")).click();
+    driver.findElement(By.name("email")).clear();
+    driver.findElement(By.name("email")).sendKeys(email);
+    driver.findElement(By.name("bday")).click();
+    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(bday);
+    driver.findElement(By.name("bmonth")).click();
+    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(bmonth);
+    driver.findElement(By.name("byear")).click();
+    driver.findElement(By.name("byear")).clear();
+    driver.findElement(By.name("byear")).sendKeys(year);
+    driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
   }
 
   private void gotoAddNewContact() {
