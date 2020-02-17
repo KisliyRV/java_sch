@@ -7,10 +7,9 @@ public class AddressBookTest extends TestBase {
 
   @Test
   public void testAddressBook() throws Exception {
-    app.gotoAddNewContact();
-    app.fillNewContact(new AddressData("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "15", "August"));
-    app.submitNewContact();
-    app.returnLogaut(); //выходим из системы
+    app.getContactHelper().gotoAddNewContact();
+    app.getContactHelper().fillNewContact(new AddressData("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "15", "August"));
+    app.getContactHelper().submitNewContact();
   }
 
 }
