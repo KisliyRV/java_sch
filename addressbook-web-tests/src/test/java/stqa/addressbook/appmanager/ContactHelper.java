@@ -31,7 +31,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void checkContact() {
-        click(By.id("1"));
+        click(By.name("selected[]"));
     }
 
     public void submitContactDeletion() {
