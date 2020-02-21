@@ -9,8 +9,9 @@ public class AddressData {
     private final String year;
     private final String bday;
     private final String bmonth;
+    private String group;
 
-    public AddressData(String firstname, String lastname, String address, String mobilephone, String email, String year, String bday, String bmonth) {
+    public AddressData(String firstname, String lastname, String address, String mobilephone, String email, String year, String bday, String bmonth, String group) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
@@ -19,6 +20,7 @@ public class AddressData {
         this.year = year;
         this.bday = bday;
         this.bmonth = bmonth;
+        this.group = group;
     }
 
     public String getFirstname() {
@@ -51,5 +53,9 @@ public class AddressData {
 
     public String getBmonth() {
         return bmonth;
+    }
+
+    public String getGroup() {
+        return group;
     }
 }
