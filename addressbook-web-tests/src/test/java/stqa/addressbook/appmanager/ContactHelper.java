@@ -68,6 +68,6 @@ public class ContactHelper extends HelperBase {
     }
 
     public boolean isThereAContact() {
-        return isElementPresent(By.name("add new"));
+        return isElementPresent(By.name("selected[]"));
     }
 }
