@@ -15,5 +15,4 @@ public class AddressBookTest extends TestBase {
     int after = app.getContactHelper().getContactCount();
     Assert.assertEquals(after, before +1);
   }
-
 }
