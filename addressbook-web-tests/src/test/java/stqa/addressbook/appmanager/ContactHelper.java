@@ -44,6 +44,8 @@ public class ContactHelper extends HelperBase {
 
     public void submitContactDeletion() {
         click(By.xpath("//input[@value='Delete']"));
+        driver.switchTo().alert().accept();
+        driver.findElement(By.cssSelector("div.msgbox"));
     }
 
     public void homeContact() {
@@ -51,7 +53,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void editContact() {
-        click(By.xpath("(//img[@alt='Edit'])[2]"));
+        click(By.xpath("(//img[@alt='Edit'])"));
     }
 
     public void updateContact() {
@@ -69,5 +71,10 @@ public class ContactHelper extends HelperBase {
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+
+    public int getContactCount() {
+        return driver.findElements(By.name("selected[]")).size();
     }
 }

@@ -55,4 +55,8 @@ public class GroupHelper extends HelperBase {
     private void returnToGroupPage() {
         click(By.linkText("groups"));
     }
+
+    public int getGroupCount() {
+        return driver.findElements(By.name("selected[]")).size();
+    }
 }
