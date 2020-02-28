@@ -9,8 +9,8 @@ public class GroupCreateTests extends TestBase {
 
   @Test
   public void testGroupCreate() throws Exception {
-    int before = app.getGroupHelper().getGroupCount();
     app.getNavigationHelper().gotoGroupPage(); //Переходим на страницу группы
+    int before = app.getGroupHelper().getGroupCount();
     app.getGroupHelper().initGroupCreation(); //Создаем тестовую группу
     app.getGroupHelper().fillGroupForm(new GroupData("test1", null, "test3")); //Заполняем тестовую группу
     app.getGroupHelper().submitGroupCreation(); //применяем изменения
