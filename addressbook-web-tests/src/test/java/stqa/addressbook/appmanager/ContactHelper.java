@@ -2,9 +2,13 @@ package stqa.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import stqa.addressbook.model.AddressData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -52,8 +56,9 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home"));
     }
 
-    public void editContact() {
-        click(By.xpath("(//img[@alt='Edit'])"));
+    public void editContact(int index) {
+        driver.findElements(By.xpath("(//img[@alt='Edit'])")).get(index).click();
+       // click(By.xpath("(//img[@alt='Edit'])"));
     }
 
     public void updateContact() {
@@ -74,7 +79,18 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public int getContactCount() {
-        return driver.findElements(By.name("selected[]")).size();
+    //public int getContactCount() {
+     //   return driver.findElements(By.name("selected[]")).size();
+    //}
+
+    public List<AddressData> getContactList() {
+        List<AddressData> contacts = new ArrayList<AddressData>();
+        List<WebElement> elements = driver.findElements(By.xpath("//img[@alt='Edit']"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            AddressData contact = new AddressData(name, null, null, null, null, null, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }

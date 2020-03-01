@@ -4,20 +4,22 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.AddressData;
 
+import java.util.List;
+
 public class ContactModificationTest extends TestBase {
 
     @Test
     public void testContactModification() {
         app.getContactHelper().homeContact();
-        int before = app.getContactHelper().getContactCount();
         if (! app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(new AddressData("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "15", "August", "test1"));
+            app.getContactHelper().createContact(new AddressData("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "13", "March", "[none]"));
         }
-        app.getContactHelper().editContact();
-        app.getContactHelper().fillNewContact(new AddressData("Tolik", "Pult", "ot st. 33", "555000", "test101@gmail.com", "1989", "4", "February", null), false);
+        List<AddressData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().editContact(before.size() - 1);
+        app.getContactHelper().fillNewContact(new AddressData("Tolik", "Pult", "ot st. 33", "555000", "test101@gmail.com", "1989", "18", "July", null), false);
         app.getContactHelper().updateContact();
         app.getContactHelper().homeContact();
-        int after = app.getContactHelper().getContactCount();
-        Assert.assertEquals(after, before);
+        List<AddressData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size());
     }
 }
