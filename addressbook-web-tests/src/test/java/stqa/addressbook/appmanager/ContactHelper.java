@@ -38,8 +38,8 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void checkContact() {
-        click(By.name("selected[]"));
+    public void checkContact(int index) {
+        driver.findElements(By.name("selected[]")).get(index).click();
     }
 
     public void submitContactDeletion() {
