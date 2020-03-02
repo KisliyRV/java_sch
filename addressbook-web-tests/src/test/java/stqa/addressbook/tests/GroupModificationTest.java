@@ -23,6 +23,8 @@ public class GroupModificationTest extends TestBase {
         // app.switchTo().alert().accept(); //У меня больше окно не выскакивает.
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size());
+
+
     }
 
 }
