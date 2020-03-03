@@ -71,7 +71,7 @@ public class ContactHelper extends HelperBase {
 
     }
 
-    private void fillNewContact(AddressData addressData) {
+    public void fillNewContact(AddressData addressData) {
     }
 
     public boolean isThereAContact() {
@@ -85,10 +85,13 @@ public class ContactHelper extends HelperBase {
 
     public List<AddressData> getContactList() {
         List<AddressData> contacts = new ArrayList<AddressData>();
-        List<WebElement> elements = driver.findElements(By.xpath("//img[@alt='Edit']"));
+        List<WebElement> elements = driver.findElements(By.name("entry"));
         for (WebElement element : elements) {
-            String name = element.getText();
-            AddressData contact = new AddressData(name, null, null, null, null, null, null, null, null);
+            List<WebElement> cells = element.findElements(By.tagName("td"));
+            String firstname = cells.get(2).getText();
+            String lastname = cells.get(1).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            AddressData contact = new AddressData(id, firstname, lastname,  null, null, null, null, null, null, null);
             contacts.add(contact);
         }
         return contacts;
