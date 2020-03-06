@@ -16,12 +16,12 @@ public class ContactHelper extends HelperBase {
         super(driver);
     }
 
-    public void submitNewContact() {
+    public void submit() {
         click(By.name("submit"));
         click(By.linkText("home"));
     }
 
-    public void fillNewContact(AddressData addressData, boolean creation) {
+    public void fillForm(AddressData addressData, boolean creation) {
       type(By.name("firstname"),addressData.getFirstname());
       type(By.name("lastname"), addressData.getLastname());
       type(By.name("address"), addressData.getAddress());
@@ -66,24 +66,24 @@ public class ContactHelper extends HelperBase {
     }
     public void createContact(AddressData addressData) {
         gotoAddNewContact();
-        fillNewContact(addressData);
-        submitNewContact();
+        fillForm(addressData);
+        submit();
 
     }
 
-    public void madifyContact(int index, AddressData contact) {
+    public void modify(int index, AddressData contact) {
        editContact(index);
-       fillNewContact(contact, false);
+       fillForm(contact, false);
        updateContact();
        homeContact();
     }
 
-    public void deleteContact(int index) {
+    public void delete(int index) {
         checkContact(index);
         submitContactDeletion();
     }
 
-    public void fillNewContact(AddressData addressData) {
+    public void fillForm(AddressData addressData) {
     }
 
     public boolean isThereAContact() {
@@ -95,7 +95,7 @@ public class ContactHelper extends HelperBase {
      //   return driver.findElements(By.name("selected[]")).size();
     //}
 
-    public List<AddressData> getContactList() {
+    public List<AddressData> list() {
         List<AddressData> contacts = new ArrayList<AddressData>();
         List<WebElement> elements = driver.findElements(By.name("entry"));
         for (WebElement element : elements) {

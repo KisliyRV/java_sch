@@ -15,17 +15,17 @@ public class GroupHelper extends HelperBase {
 
     }
 
-    public void submitGroupCreation() {
+    public void submit() {
         click(By.name("submit"));
     }
 
-    public void fillGroupForm(GroupData groupData) {
+    public void fillForm(GroupData groupData) {
         type(By.name("group_name"), groupData.getName());
         type(By.name("group_header"), groupData.getHeader());
         type(By.name("group_footer"), groupData.getFooter());
     }
 
-    public void initGroupCreation() {
+    public void creation() {
         click(By.name("new"));
     }
 
@@ -41,7 +41,7 @@ public class GroupHelper extends HelperBase {
         click(By.name("edit"));
     }
 
-    public void subminGroupModification() {
+    public void submitGroupModification() {
         click(By.name("update"));
     }
 
@@ -49,21 +49,21 @@ public class GroupHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void createGroup(GroupData group) {
-        initGroupCreation();
-        fillGroupForm(group);
-        submitGroupCreation();
+    public void create(GroupData group) {
+        creation();
+        fillForm(group);
+        submit();
         returnToGroupPage();
     }
 
-    public void madifyGroup(int index, GroupData group) {
+    public void modify(int index, GroupData group) {
         selectGroup(index);
         initGroupModification();
-        fillGroupForm(group);
-        subminGroupModification();
+        fillForm(group);
+        submitGroupModification();
     }
 
-    public void deleteGroup(int index) {
+    public void delete(int index) {
         selectGroup(index);
         deleteSelectedGroups();
     }
@@ -76,7 +76,7 @@ public class GroupHelper extends HelperBase {
    //     return driver.findElements(By.name("selected[]")).size();
    // }
 
-    public List<GroupData> getGroupList() {
+    public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
         for (WebElement element : elements) {
