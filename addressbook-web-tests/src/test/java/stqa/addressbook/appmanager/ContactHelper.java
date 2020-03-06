@@ -71,6 +71,18 @@ public class ContactHelper extends HelperBase {
 
     }
 
+    public void madifyContact(int index, AddressData contact) {
+       editContact(index);
+       fillNewContact(contact, false);
+       updateContact();
+       homeContact();
+    }
+
+    public void deleteContact(int index) {
+        checkContact(index);
+        submitContactDeletion();
+    }
+
     public void fillNewContact(AddressData addressData) {
     }
 

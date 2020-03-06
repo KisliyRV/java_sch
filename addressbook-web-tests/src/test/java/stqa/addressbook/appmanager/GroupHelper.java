@@ -34,7 +34,6 @@ public class GroupHelper extends HelperBase {
     }
 
     public void selectGroup(int index) {
-        
         driver.findElements(By.name("selected[]")).get(index).click();
     }
 
@@ -55,6 +54,18 @@ public class GroupHelper extends HelperBase {
         fillGroupForm(group);
         submitGroupCreation();
         returnToGroupPage();
+    }
+
+    public void madifyGroup(int index, GroupData group) {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupForm(group);
+        subminGroupModification();
+    }
+
+    public void deleteGroup(int index) {
+        selectGroup(index);
+        deleteSelectedGroups();
     }
 
     private void returnToGroupPage() {
