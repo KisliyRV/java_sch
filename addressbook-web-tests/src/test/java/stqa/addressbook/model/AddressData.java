@@ -118,12 +118,15 @@ public class AddressData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AddressData that = (AddressData) o;
-        return Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname);
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(lastname, that.lastname) &&
+                Objects.equals(mobilephone, that.mobilephone) &&
+                Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname, lastname);
+        return Objects.hash(id, firstname, lastname, mobilephone, email);
     }
 }

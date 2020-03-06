@@ -8,7 +8,9 @@ import org.testng.Assert;
 import stqa.addressbook.model.AddressData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -42,8 +44,9 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
-    public void checkContact(int index) {
-        driver.findElements(By.name("selected[]")).get(index).click();
+
+    public void checkContactById(int id) {
+        driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
     }
 
     public void submitContactDeletion() {
@@ -56,9 +59,9 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home"));
     }
 
-    public void editContact(int index) {
-        driver.findElements(By.xpath("(//img[@alt='Edit'])")).get(index).click();
-       // click(By.xpath("(//img[@alt='Edit'])"));
+    public void editContactById(int id) {
+        driver.findElement(By.cssSelector("a[href*='edit.php?id=" + id + "']")).click();
+        // click(By.xpath("(//img[@alt='Edit'])"));
     }
 
     public void updateContact() {
@@ -71,15 +74,15 @@ public class ContactHelper extends HelperBase {
 
     }
 
-    public void modify(int index, AddressData contact) {
-       editContact(index);
+    public void modify(AddressData contact) {
+       editContactById(contact.getId());
        fillForm(contact, false);
        updateContact();
        homeContact();
     }
 
-    public void delete(int index) {
-        checkContact(index);
+    public void delete(AddressData contact) {
+        checkContactById(contact.getId());
         submitContactDeletion();
     }
 
@@ -95,13 +98,15 @@ public class ContactHelper extends HelperBase {
      //   return driver.findElements(By.name("selected[]")).size();
     //}
 
-    public List<AddressData> list() {
-        List<AddressData> contacts = new ArrayList<AddressData>();
+    public Set<AddressData> all() {
+        Set<AddressData> contacts = new HashSet<AddressData>();
         List<WebElement> elements = driver.findElements(By.name("entry"));
         for (WebElement element : elements) {
             List<WebElement> cells = element.findElements(By.tagName("td"));
             String firstname = cells.get(2).getText();
             String lastname = cells.get(1).getText();
+           // String mobilephone = cells.get(3).getText();
+           // String email = cells.get(4).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
             contacts.add(new AddressData().withId(id).withFirstName(firstname).withLastName(lastname));
         }
