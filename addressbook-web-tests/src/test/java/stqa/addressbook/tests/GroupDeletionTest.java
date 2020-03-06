@@ -3,7 +3,9 @@ package stqa.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import stqa.addressbook.model.GroupData;
-import java.util.Set;
+import stqa.addressbook.model.Groups;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class GroupDeletionTest extends TestBase {
@@ -18,14 +20,12 @@ public class GroupDeletionTest extends TestBase {
 
   @Test
   public void testGroupDeletion() throws Exception {
-    Set<GroupData> before = app.group().all();
+    Groups before = app.group().all();
     GroupData deletedGroup = before.iterator().next();
     app.group().delete(deletedGroup);
     app.goTo().groupPage();
-    Set<GroupData> after = app.group().all();
+    Groups after = app.group().all();
     Assert.assertEquals(after.size(), before.size() -1);
-
-    before.remove(deletedGroup);
-    Assert.assertEquals(before, after);
+    assertThat(after, equalTo(before.without(deletedGroup)));
   }
 }

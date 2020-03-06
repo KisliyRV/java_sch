@@ -4,7 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.AddressData;
-import java.util.Set;
+import stqa.addressbook.model.Contact;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactModificationTest extends TestBase {
 
@@ -18,16 +20,13 @@ public class ContactModificationTest extends TestBase {
 
     @Test
     public void testContactModification() {
-        Set<AddressData> before = app.contact().all();
+        Contact before = app.contact().all();
         AddressData modyfiedContact = before.iterator().next();
         AddressData contact = new AddressData()
                 .withId(modyfiedContact.getId()).withFirstName("Tolik").withLastName("Pult").withAddress("ot st. 33").withMobilePhone("555000").withEmail("test101@gmail.com").withYear("1989").withBDay("18").withBMonth("July");
         app.contact().modify(contact);
-        Set<AddressData> after = app.contact().all();
+        Contact after = app.contact().all();
         Assert.assertEquals(after.size(), before.size());
-
-        before.remove(modyfiedContact);
-        before.add(contact);
-        Assert.assertEquals(before, after);
+        assertThat(after, equalTo(before.without(modyfiedContact).withAdded(contact)));
     }
 }

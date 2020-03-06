@@ -1,10 +1,11 @@
 package stqa.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import stqa.addressbook.model.GroupData;
-import java.util.Set;
+import stqa.addressbook.model.Groups;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GroupModificationTest extends TestBase {
 
@@ -18,18 +19,16 @@ public class GroupModificationTest extends TestBase {
 
     @Test
     public void testGroupModification() {
-        Set<GroupData> before = app.group().all();
+        Groups before = app.group().all();
         GroupData modifiedGroup = before.iterator().next();
         GroupData group = new GroupData()
                 .withId(modifiedGroup.getId()).withName("test5").withHeader( "test4").withFooter( "test3");
         app.group().modify(group);
         app.goTo().groupPage();
         // app.switchTo().alert().accept(); //У меня больше окно не выскакивает.
-        Set<GroupData> after = app.group().all();
-        Assert.assertEquals(after.size(), before.size());
-
-        before.remove(modifiedGroup);
-        before.add(group);
-        Assert.assertEquals(before, after);
+        Groups after = app.group().all();
+        assertThat(after.size(), equalTo(before.size()));
+        assertThat(after, equalTo(
+                before.without(modifiedGroup).withAdded(group)));
     }
 }
