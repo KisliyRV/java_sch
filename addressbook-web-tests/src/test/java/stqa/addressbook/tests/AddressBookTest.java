@@ -12,7 +12,8 @@ public class AddressBookTest extends TestBase {
   public void testAddressBook() throws Exception {
     app.contact().gotoAddNewContact();
     List<AddressData> before = app.contact().list();
-    AddressData contact = new AddressData("Dima", "Pupkin", "Test st. 11", "1112223334444", "test55@gmail.com", "2001", "13", "March", "[none]");
+    AddressData contact = new AddressData()
+            .withFirstName("Dima").withLastName("Pupkin").withAddress("Test st. 11").withMobilePhone("1112223334444").withEmail("test55@gmail.com").withYear("2001").withBDay("13").withBMonth("March").withGroup("[none]");
     app.contact().fillForm(contact, true);
     app.contact().submit();
     List<AddressData> after = app.contact().list();

@@ -22,17 +22,17 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillForm(AddressData addressData, boolean creation) {
-      type(By.name("firstname"),addressData.getFirstname());
-      type(By.name("lastname"), addressData.getLastname());
-      type(By.name("address"), addressData.getAddress());
-      type(By.name("mobile"), addressData.getMobilephone());
-      type(By.name("email"), addressData.getEmail());
-      select(By.name("bday"), addressData.getBday());
-      select(By.name("bmonth"), addressData.getBmonth());
-      type(By.name("byear"), addressData.getYear());
+      type(By.name("firstname"),addressData.withFirstName());
+      type(By.name("lastname"), addressData.withLastName());
+      type(By.name("address"), addressData.withAddress());
+      type(By.name("mobile"), addressData.withMobilePhone());
+      type(By.name("email"), addressData.withEmail());
+      select(By.name("bday"), addressData.withBDay());
+      select(By.name("bmonth"), addressData.withBMonth());
+      type(By.name("byear"), addressData.withYear());
 
         if (creation) {
-            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(addressData.getGroup());
+            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(addressData.withGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -103,8 +103,7 @@ public class ContactHelper extends HelperBase {
             String firstname = cells.get(2).getText();
             String lastname = cells.get(1).getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            AddressData contact = new AddressData(id, firstname, lastname,  null, null, null, null, null, null, null);
-            contacts.add(contact);
+            contacts.add(new AddressData().withId(id).withFirstName(firstname).withLastName(lastname));
         }
         return contacts;
     }

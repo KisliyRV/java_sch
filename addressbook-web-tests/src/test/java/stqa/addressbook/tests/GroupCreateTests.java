@@ -15,7 +15,7 @@ public class GroupCreateTests extends TestBase {
     app.goTo().groupPage(); //Переходим на страницу группы
     List<GroupData> before = app.group().list();
     app.group().creation(); //Создаем тестовую группу
-    GroupData group = new GroupData("test1", null, null, null);
+    GroupData group = new GroupData().withName("test1");
     app.group().fillForm(group); //Заполняем тестовую группу
     app.group().submit(); //применяем изменения
     app.goTo().groupPage();
