@@ -20,7 +20,7 @@ public class AddressBookTest extends TestBase {
     app.contact().fillForm(contact, true);
     app.contact().submit();
     Contact after = app.contact().all();
-    Assert.assertEquals(after.size(), before.size() +1);
+    assertThat(after.size(), equalTo(before.size() + 1));
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }
 }
