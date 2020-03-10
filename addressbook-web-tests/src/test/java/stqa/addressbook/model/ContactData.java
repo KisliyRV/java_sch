@@ -2,7 +2,7 @@ package stqa.addressbook.model;
 
 import java.util.Objects;
 
-public class AddressData {
+public class ContactData {
     private int id  = Integer.MAX_VALUE;
     private String firstname;
     private String lastname;
@@ -25,152 +25,152 @@ public class AddressData {
         return id;
     }
 
-    public AddressData withId(int id) {
+    public ContactData withId(int id) {
         this.id = id;
         return this;
     }
 
-    public AddressData withFirstName(String firstname) {
+    public ContactData getFirstName(String firstname) {
         this.firstname = firstname;
         return this;
     }
 
-    public AddressData withLastName(String lastname) {
+    public ContactData getLastName(String lastname) {
         this.lastname = lastname;
         return this;
     }
 
-    public AddressData withAddress(String address) {
+    public ContactData getAddress(String address) {
         this.address = address;
         return this;
     }
 
-    public AddressData withMobilePhone(String mobilephone) {
+    public ContactData getMobilePhone(String mobilephone) {
         this.mobilephone = mobilephone;
         return this;
     }
 
-    public AddressData withEmail(String email) {
+    public ContactData getEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public AddressData withEmail2(String email2) {
+    public ContactData getEmail2(String email2) {
         this.email2 = email2;
         return this;
     }
 
-    public AddressData withEmail3(String email3) {
+    public ContactData getEmail3(String email3) {
         this.email3 = email3;
         return this;
     }
 
-    public AddressData withYear(String year) {
+    public ContactData getYear(String year) {
         this.year = year;
         return this;
     }
 
-    public AddressData withBDay(String bday) {
+    public ContactData getBDay(String bday) {
         this.bday = bday;
         return this;
     }
 
-    public AddressData withBMonth(String bmonth) {
+    public ContactData getBMonth(String bmonth) {
         this.bmonth = bmonth;
         return this;
     }
 
-    public AddressData withGroup(String group) {
+    public ContactData getGroup(String group) {
         this.group = group;
         return this;
     }
 
-    public AddressData withHomePhone(String homePhone) {
+    public ContactData getHomePhone(String homePhone) {
         this.homephone = homePhone;
         return this;
     }
 
-    public AddressData withWorkPhone(String workphone) {
+    public ContactData getWorkPhone(String workphone) {
         this.workphone = workphone;
         return this;
     }
 
-    public AddressData withAllPhones(String allphone) {
+    public ContactData withAllPhones(String allphone) {
         this.allphone = allphone;
         return this;
     }
 
-    public AddressData withAllAddresses(String allAddresses) {
+    public ContactData getAllAddresses(String allAddresses) {
         this.allAddresses = allAddresses;
         return this;
     }
 
-    public AddressData withAllEmailAddresses(String allEmailAddresses) {
+    public ContactData getAllEmailAddresses(String allEmailAddresses) {
         this.allEmailAddresses = allEmailAddresses;
         return this;
     }
 
-    public String withFirstName() {
+    public String getFirstName() {
         return firstname;
     }
 
-    public String withLastName(){
+    public String getLastName(){
         return lastname;
     }
 
-    public String withAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public String withMobilePhone() {
+    public String getMobilePhone() {
         return mobilephone;
     }
 
-    public String withHomePhone() {
+    public String getHomePhone() {
         return homephone;
     }
 
-    public String withWorkPhone() {
+    public String getWorkPhone() {
         return workphone;
     }
 
-    public String withAllPhone() {
+    public String getAllPhone() {
         return allphone;
     }
 
-    public String withAllAddresses() {
+    public String getAllAddresses() {
         return allAddresses;
     }
 
-    public String withAllEmailAddresses() {
+    public String getAllEmailAddresses() {
         return allEmailAddresses;
     }
 
-    public String withEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public String withEmail2() {
+    public String getEmail2() {
         return email2;
     }
 
-    public String withEmail3() {
+    public String getEmail3() {
         return email3;
     }
 
-    public String withBDay() {
+    public String getBDay() {
         return bday;
     }
 
-    public String withBMonth() {
+    public String getBMonth() {
         return bmonth;
     }
 
-    public String withYear() {
+    public String getYear() {
         return year;
     }
 
-    public String withGroup() {
+    public String getGroup() {
         return group;
     }
 
@@ -187,7 +187,7 @@ public class AddressData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AddressData that = (AddressData) o;
+        ContactData that = (ContactData) o;
         return id == that.id &&
                 Objects.equals(firstname, that.firstname) &&
                 Objects.equals(lastname, that.lastname);

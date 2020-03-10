@@ -5,13 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import stqa.addressbook.model.AddressData;
+import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contact;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -24,18 +21,18 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home"));
     }
 
-    public void fillForm(AddressData addressData, boolean creation) {
-      type(By.name("firstname"),addressData.withFirstName());
-      type(By.name("lastname"), addressData.withLastName());
-      type(By.name("address"), addressData.withAddress());
-      type(By.name("mobile"), addressData.withMobilePhone());
-      type(By.name("email"), addressData.withEmail());
-      select(By.name("bday"), addressData.withBDay());
-      select(By.name("bmonth"), addressData.withBMonth());
-      type(By.name("byear"), addressData.withYear());
+    public void fillForm(ContactData contactData, boolean creation) {
+      type(By.name("firstname"), contactData.getFirstName());
+      type(By.name("lastname"), contactData.getLastName());
+      type(By.name("address"), contactData.getAddress());
+      type(By.name("mobile"), contactData.getMobilePhone());
+      type(By.name("email"), contactData.getEmail());
+      select(By.name("bday"), contactData.getBDay());
+      select(By.name("bmonth"), contactData.getBMonth());
+      type(By.name("byear"), contactData.getYear());
 
         if (creation) {
-            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(addressData.withGroup());
+            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -68,26 +65,26 @@ public class ContactHelper extends HelperBase {
     public void updateContact() {
         click(By.name("update"));
     }
-    public void createContact(AddressData addressData) {
+    public void createContact(ContactData contactData) {
         gotoAddNewContact();
-        fillForm(addressData);
+        fillForm(contactData);
         submit();
 
     }
 
-    public void modify(AddressData contact) {
+    public void modify(ContactData contact) {
        editContactById(contact.getId());
        fillForm(contact, false);
        updateContact();
        homeContact();
     }
 
-    public void delete(AddressData contact) {
+    public void delete(ContactData contact) {
         checkContactById(contact.getId());
         submitContactDeletion();
     }
 
-    public void fillForm(AddressData addressData) {
+    public void fillForm(ContactData contactData) {
     }
 
     public boolean isThereAContact() {
@@ -110,13 +107,13 @@ public class ContactHelper extends HelperBase {
             String allAddresses = cells.get(3).getText();
             String allEmailAddresses = cells.get(4).getText();
             int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-            contacts.add(new AddressData().withId(id).withFirstName(firstname).withLastName(lastname)
-                    .withAllPhones(allPhones).withAddress(allAddresses).withAllEmailAddresses(allEmailAddresses));
+            contacts.add(new ContactData().withId(id).getFirstName(firstname).getLastName(lastname)
+                    .withAllPhones(allPhones).getAddress(allAddresses).getAllEmailAddresses(allEmailAddresses));
         }
         return contacts;
     }
 
-    public AddressData infoFromEdinFrom(AddressData contact) {
+    public ContactData infoFromEditFrom(ContactData contact) {
         editContactById(contact.getId());
         String firstname = driver.findElement(By.name("firstname")).getAttribute("value");
         String lastname = driver.findElement(By.name("lastname")).getAttribute("value");
@@ -129,7 +126,7 @@ public class ContactHelper extends HelperBase {
         String email3 = driver.findElement(By.name("email3")).getAttribute("value");
 
         driver.navigate().back();
-        return new AddressData().withId(contact.getId()).withFirstName(firstname).withLastName(lastname)
-                .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
+        return new ContactData().withId(contact.getId()).getFirstName(firstname).getLastName(lastname)
+                .getHomePhone(home).getMobilePhone(mobile).getWorkPhone(work).getAddress(address).getEmail(email).getEmail2(email2).getEmail3(email3);
     }
 }
