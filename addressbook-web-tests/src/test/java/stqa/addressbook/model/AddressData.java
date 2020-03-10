@@ -8,11 +8,18 @@ public class AddressData {
     private String lastname;
     private String address;
     private String mobilephone;
+    private String homephone;
+    private String workphone;
+    private String allphone;
     private String email;
+    private String email2;
+    private String email3;
     private String year;
     private String bday;
     private String bmonth;
     private String group;
+    private String allAddresses;
+    private String allEmailAddresses;
 
     public int getId() {
         return id;
@@ -48,6 +55,16 @@ public class AddressData {
         return this;
     }
 
+    public AddressData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public AddressData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
     public AddressData withYear(String year) {
         this.year = year;
         return this;
@@ -68,6 +85,31 @@ public class AddressData {
         return this;
     }
 
+    public AddressData withHomePhone(String homePhone) {
+        this.homephone = homePhone;
+        return this;
+    }
+
+    public AddressData withWorkPhone(String workphone) {
+        this.workphone = workphone;
+        return this;
+    }
+
+    public AddressData withAllPhones(String allphone) {
+        this.allphone = allphone;
+        return this;
+    }
+
+    public AddressData withAllAddresses(String allAddresses) {
+        this.allAddresses = allAddresses;
+        return this;
+    }
+
+    public AddressData withAllEmailAddresses(String allEmailAddresses) {
+        this.allEmailAddresses = allEmailAddresses;
+        return this;
+    }
+
     public String withFirstName() {
         return firstname;
     }
@@ -84,8 +126,36 @@ public class AddressData {
         return mobilephone;
     }
 
+    public String withHomePhone() {
+        return homephone;
+    }
+
+    public String withWorkPhone() {
+        return workphone;
+    }
+
+    public String withAllPhone() {
+        return allphone;
+    }
+
+    public String withAllAddresses() {
+        return allAddresses;
+    }
+
+    public String withAllEmailAddresses() {
+        return allEmailAddresses;
+    }
+
     public String withEmail() {
         return email;
+    }
+
+    public String withEmail2() {
+        return email2;
+    }
+
+    public String withEmail3() {
+        return email3;
     }
 
     public String withBDay() {
