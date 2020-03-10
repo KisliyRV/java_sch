@@ -120,13 +120,11 @@ public class AddressData {
         AddressData that = (AddressData) o;
         return id == that.id &&
                 Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname) &&
-                Objects.equals(mobilephone, that.mobilephone) &&
-                Objects.equals(email, that.email);
+                Objects.equals(lastname, that.lastname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname, mobilephone, email);
+        return Objects.hash(id, firstname, lastname);
     }
 }
