@@ -26,8 +26,8 @@ public class GroupModificationTest extends TestBase {
         app.group().modify(group);
         app.goTo().groupPage();
         // app.switchTo().alert().accept(); //У меня больше окно не выскакивает.
+        assertThat(app.group().count(), equalTo(before.size()));
         Groups after = app.group().all();
-        assertThat(after.size(), equalTo(before.size()));
         assertThat(after, equalTo(
                 before.without(modifiedGroup).withAdded(group)));
     }
