@@ -1,5 +1,6 @@
 package stqa.addressbook.model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
@@ -20,6 +21,16 @@ public class ContactData {
     private String group;
     private String allAddresses;
     private String allEmailAddresses;
+    private File photo;
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
+
+    public File getPhoto() {
+        return photo;
+    }
 
     public int getId() {
         return id;
@@ -30,67 +41,67 @@ public class ContactData {
         return this;
     }
 
-    public ContactData getFirstName(String firstname) {
+    public ContactData withFirstName(String firstname) {
         this.firstname = firstname;
         return this;
     }
 
-    public ContactData getLastName(String lastname) {
+    public ContactData withLastName(String lastname) {
         this.lastname = lastname;
         return this;
     }
 
-    public ContactData getAddress(String address) {
+    public ContactData withAddress(String address) {
         this.address = address;
         return this;
     }
 
-    public ContactData getMobilePhone(String mobilephone) {
+    public ContactData withMobilePhone(String mobilephone) {
         this.mobilephone = mobilephone;
         return this;
     }
 
-    public ContactData getEmail(String email) {
+    public ContactData withEmail(String email) {
         this.email = email;
         return this;
     }
 
-    public ContactData getEmail2(String email2) {
+    public ContactData withEmail2(String email2) {
         this.email2 = email2;
         return this;
     }
 
-    public ContactData getEmail3(String email3) {
+    public ContactData withEmail3(String email3) {
         this.email3 = email3;
         return this;
     }
 
-    public ContactData getYear(String year) {
+    public ContactData withYear(String year) {
         this.year = year;
         return this;
     }
 
-    public ContactData getBDay(String bday) {
+    public ContactData withBDay(String bday) {
         this.bday = bday;
         return this;
     }
 
-    public ContactData getBMonth(String bmonth) {
+    public ContactData withBMonth(String bmonth) {
         this.bmonth = bmonth;
         return this;
     }
 
-    public ContactData getGroup(String group) {
+    public ContactData withGroup(String group) {
         this.group = group;
         return this;
     }
 
-    public ContactData getHomePhone(String homePhone) {
+    public ContactData withHomePhone(String homePhone) {
         this.homephone = homePhone;
         return this;
     }
 
-    public ContactData getWorkPhone(String workphone) {
+    public ContactData withWorkPhone(String workphone) {
         this.workphone = workphone;
         return this;
     }
@@ -100,12 +111,12 @@ public class ContactData {
         return this;
     }
 
-    public ContactData getAllAddresses(String allAddresses) {
+    public ContactData withAllAddresses(String allAddresses) {
         this.allAddresses = allAddresses;
         return this;
     }
 
-    public ContactData getAllEmailAddresses(String allEmailAddresses) {
+    public ContactData withAllEmailAddresses(String allEmailAddresses) {
         this.allEmailAddresses = allEmailAddresses;
         return this;
     }

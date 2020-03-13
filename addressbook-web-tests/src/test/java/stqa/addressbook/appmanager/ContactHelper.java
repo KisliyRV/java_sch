@@ -24,6 +24,7 @@ public class ContactHelper extends HelperBase {
     public void fillForm(ContactData contactData, boolean creation) {
       type(By.name("firstname"), contactData.getFirstName());
       type(By.name("lastname"), contactData.getLastName());
+      attach(By.name("photo"), contactData.getPhoto());
       type(By.name("address"), contactData.getAddress());
       type(By.name("mobile"), contactData.getMobilePhone());
       type(By.name("email"), contactData.getEmail());
@@ -107,8 +108,8 @@ public class ContactHelper extends HelperBase {
             String allAddresses = cells.get(3).getText();
             String allEmailAddresses = cells.get(4).getText();
             int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
-            contacts.add(new ContactData().withId(id).getFirstName(firstname).getLastName(lastname)
-                    .withAllPhones(allPhones).getAddress(allAddresses).getAllEmailAddresses(allEmailAddresses));
+            contacts.add(new ContactData().withId(id).withFirstName(firstname).withLastName(lastname)
+                    .withAllPhones(allPhones).withAddress(allAddresses).withAllEmailAddresses(allEmailAddresses));
         }
         return contacts;
     }
@@ -126,7 +127,7 @@ public class ContactHelper extends HelperBase {
         String email3 = driver.findElement(By.name("email3")).getAttribute("value");
 
         driver.navigate().back();
-        return new ContactData().withId(contact.getId()).getFirstName(firstname).getLastName(lastname)
-                .getHomePhone(home).getMobilePhone(mobile).getWorkPhone(work).getAddress(address).getEmail(email).getEmail2(email2).getEmail3(email3);
+        return new ContactData().withId(contact.getId()).withFirstName(firstname).withLastName(lastname)
+                .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
     }
 }
