@@ -39,7 +39,7 @@ public class GroupDataGenerator {
         } else if(format.equals("xml")){
             saveXml(groups, new File(file));
         } else {
-            System.out.println("Неизвесный формат" + format);
+            System.out.println("Неизвестный формат" + format);
         }
 
     }

@@ -43,7 +43,7 @@ public class ContactDataGenerator {
          } else if(format.equals("xml")){
               saveXml(contact, new File(file));
           } else {
-            System.out.println("Неизвесный формат" + format);
+            System.out.println("Неизвестный формат" + format);
          }
     }
 
