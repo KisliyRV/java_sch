@@ -28,9 +28,9 @@ public class ContactHelper extends HelperBase {
       type(By.name("address"), contactData.getAddress());
       type(By.name("mobile"), contactData.getMobilePhone());
       type(By.name("email"), contactData.getEmail());
-      select(By.name("bday"), contactData.getBDay());
-      select(By.name("bmonth"), contactData.getBMonth());
-      type(By.name("byear"), contactData.getYear());
+      //select(By.name("bday"), contactData.getBDay());
+      //select(By.name("bmonth"), contactData.getBMonth());
+      //type(By.name("byear"), contactData.getYear());
 
         if (creation) {
             new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());

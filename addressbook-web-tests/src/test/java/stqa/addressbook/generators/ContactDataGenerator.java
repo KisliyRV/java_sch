@@ -38,7 +38,7 @@ public class ContactDataGenerator {
     private static void saveCsv(List<ContactData> contacts, File file) throws IOException {
         Writer writer = new FileWriter(file);
         for (ContactData contact : contacts) {
-            writer.write(String.format("%s;%s;%s\n", contact.getFirstName(), contact.getLastName(), contact.getAddress()));
+            writer.write(String.format("%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstName(), contact.getLastName(), contact.getAddress(), contact.getMobilePhone(), contact.getEmail(), contact.getGroup(), contact.getPhoto()));
         }
         writer.close();
     }
@@ -47,7 +47,8 @@ public class ContactDataGenerator {
         List<ContactData> contacts = new ArrayList<ContactData>();
         for (int i = 0; i < count; i++) {
             contacts.add(new ContactData().withFirstName(String.format("FirstName %s", i))
-                    .withLastName(String.format("LastName %s", i)).withAddress(String.format("Address %s", i)));
+                    .withLastName(String.format("LastName %s", i)).withAddress(String.format("Address %s", i)).withMobilePhone(String.format("mobilephone %s", i)).withEmail(String.format("emailaddress %s", i))
+                    .withGroup("[none]").withPhoto(new File("src/test/resources/123.jpg")));
         }
         return contacts;
     }
