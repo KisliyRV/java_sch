@@ -57,14 +57,12 @@ public class ContactData {
     private String email3;
 
     @Column(name = "byear")
-   // @Type(type = "text")
     private String year;
 
     @Column(name = "bday", columnDefinition = "TINYINT")
     private String bday;
 
     @Column(name = "bmonth")
-   // @Type(type = "text")
     private String bmonth;
 
     @Transient
@@ -76,7 +74,7 @@ public class ContactData {
     @Transient
     private String allEmailAddresses;
 
-    @Column(name = "photo")//, columnDefinition = "LONGVARCHAR")
+    @Column(name = "photo")
     @Type(type = "text")
     private String photo;
 
@@ -244,10 +242,15 @@ public class ContactData {
 
     @Override
     public String toString() {
-        return "ContactsData{" +
-                "id='" + id + '\'' +
+        return "ContactData{" +
+                "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", address='" + address + '\'' +
+                ", mobilephone='" + mobilephone + '\'' +
+                ", year='" + year + '\'' +
+                ", bday='" + bday + '\'' +
+                ", bmonth='" + bmonth + '\'' +
                 '}';
     }
 
@@ -258,11 +261,17 @@ public class ContactData {
         ContactData that = (ContactData) o;
         return id == that.id &&
                 Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname);
+                Objects.equals(lastname, that.lastname) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(mobilephone, that.mobilephone) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(year, that.year) &&
+                Objects.equals(bday, that.bday) &&
+                Objects.equals(bmonth, that.bmonth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, lastname);
+        return Objects.hash(id, firstname, lastname, address, mobilephone, email, year, bday, bmonth);
     }
 }

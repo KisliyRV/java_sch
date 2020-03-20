@@ -39,11 +39,11 @@ public class ContactCreationTest extends TestBase {
 
   @Test(dataProvider = "validContact")
   public void testAddressBook(ContactData contact) throws Exception {
-    Contact before = app.contact().all();
+    Contact before = app.db().contact();
     app.contact().gotoAddNewContact();
     app.contact().fillForm(contact, true);
     app.contact().submit();
-    Contact after = app.contact().all();
+    Contact after = app.db().contact();
     assertThat(after.size(), equalTo(before.size() + 1));
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }

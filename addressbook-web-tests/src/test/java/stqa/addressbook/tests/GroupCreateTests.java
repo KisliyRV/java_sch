@@ -35,12 +35,12 @@ public class GroupCreateTests extends TestBase {
   @Test(dataProvider = "validGroups")
   public void testGroupCreate(GroupData group) {
     app.goTo().groupPage(); //Переходим на страницу группы
-    Groups before = app.group().all();
+    Groups before = app.db().group();
     app.group().creation(); //Создаем тестовую группу
     app.group().fillForm(group); //Заполняем тестовую группу
     app.group().submit(); //применяем изменения
     app.goTo().groupPage();
-    Groups after = app.group().all();
+    Groups after = app.db().group();
     assertThat(after.size(), equalTo(before.size() + 1));
     assertThat(after, equalTo(
             before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));

@@ -12,8 +12,8 @@ public class ContactAddressTest extends TestBase{
 
     @BeforeMethod
     public void ensurePreconditions(){
-        app.contact().homeContact();
-        if (app.contact().all().size() == 0) {
+        if (app.db().contact().size() == 0) {
+            app.contact().homeContact();
             app.contact().createContact(new ContactData().withFirstName("Dima").withGroup("[none]"));
         }
     }
@@ -21,7 +21,7 @@ public class ContactAddressTest extends TestBase{
     @Test
     public void testContactAddresses() {
         app.contact().homeContact();
-        ContactData contact = app.contact().all().iterator().next();
+        ContactData contact = app.db().contact().iterator().next();
         ContactData contactInfoFromEditForm = app.contact().infoFromEditFrom(contact);
         assertThat(contact.getAllAddresses(), equalTo(mergeAddresses(contactInfoFromEditForm)));
     }
