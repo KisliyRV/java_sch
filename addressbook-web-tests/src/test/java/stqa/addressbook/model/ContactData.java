@@ -2,40 +2,91 @@ package stqa.addressbook.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contact")
 
+@Entity
+@Table(name = "addressbook")
+
 public class ContactData {
     @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int id  = Integer.MAX_VALUE;
+
+    @Column(name = "firstname")
     private String firstname;
+
+    @Column(name = "lastname")
     private String lastname;
+
+    @Column(name = "address")
+    @Type(type = "text")
     private String address;
+
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilephone;
+
+    @Column(name = "home")
+    @Type(type = "text")
     private String homephone;
+
+    @Column(name = "work")
+    @Type(type = "text")
     private String workphone;
+
+    @Transient
     private String allphone;
+
+    @Column(name = "email")
+    @Type(type = "text")
     private String email;
+
+    @Column(name = "email2")
+    @Type(type = "text")
     private String email2;
+
+    @Column(name = "email3")
+    @Type(type = "text")
     private String email3;
+
+    @Column(name = "byear")
+   // @Type(type = "text")
     private String year;
+
+    @Column(name = "bday", columnDefinition = "TINYINT")
     private String bday;
+
+    @Column(name = "bmonth")
+   // @Type(type = "text")
     private String bmonth;
+
+    @Transient
     private String group;
+
+    @Transient
     private String allAddresses;
+
+    @Transient
     private String allEmailAddresses;
-    private File photo;
+
+    @Column(name = "photo")//, columnDefinition = "LONGVARCHAR")
+    @Type(type = "text")
+    private String photo;
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
     public File getPhoto() {
-        return photo;
+        return new File (photo);
     }
 
     public int getId() {
