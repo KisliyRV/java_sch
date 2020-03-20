@@ -248,6 +248,7 @@ public class ContactData {
                 ", lastname='" + lastname + '\'' +
                 ", address='" + address + '\'' +
                 ", mobilephone='" + mobilephone + '\'' +
+                ", email='" + email + '\'' +
                 ", year='" + year + '\'' +
                 ", bday='" + bday + '\'' +
                 ", bmonth='" + bmonth + '\'' +
