@@ -6,6 +6,7 @@ import stqa.addressbook.appmanager.ContactHelper;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contact;
 import stqa.addressbook.model.GroupData;
+import stqa.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -37,15 +38,24 @@ public class ContactCreationTest extends TestBase {
     }
   }
 
-  @Test(dataProvider = "validContact")
-  public void testAddressBook(ContactData contact) throws Exception {
-    Contact before = app.db().contact();
-    app.contact().gotoAddNewContact();
-    app.contact().fillForm(contact, true);
-    app.contact().submit();
-    Contact after = app.db().contact();
-    assertThat(after.size(), equalTo(before.size() + 1));
-    assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
-    verifyContactListUI();
+  @BeforeMethod
+  public void ensurePreconditions() {
+    if (app.db().group().size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("test1"));
+    }
   }
+
+  @Test
+  public void testContactCreation(){
+    Groups group = app.db().group();
+      File photo = new File("src/test/resources/123.png");
+      ContactData newContact = new  ContactData().withFirstName("Test").withLastName("Dom").withPhoto(photo)
+              .inGroup(group.iterator().next());
+   // Contact before = app.db().contact();
+    app.contact().gotoAddNewContact();
+    app.contact().fillForm(newContact, true);
+    app.contact().submit();
+   // Contact after = app.db().contact();
+    }
 }

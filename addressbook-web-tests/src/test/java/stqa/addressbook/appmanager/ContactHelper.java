@@ -1,5 +1,11 @@
 package stqa.addressbook.appmanager;
 
+import com.google.common.collect.Sets;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,8 +13,14 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.Contact;
+import stqa.addressbook.model.GroupData;
+import stqa.addressbook.model.Groups;
 
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import static stqa.addressbook.tests.TestBase.app;
 
 public class ContactHelper extends HelperBase {
 
@@ -28,12 +40,15 @@ public class ContactHelper extends HelperBase {
       type(By.name("address"), contactData.getAddress());
       type(By.name("mobile"), contactData.getMobilePhone());
       type(By.name("email"), contactData.getEmail());
-      select(By.name("bday"), contactData.getBDay());
-      select(By.name("bmonth"), contactData.getBMonth());
-      type(By.name("byear"), contactData.getYear());
+     // select(By.name("bday"), contactData.getBDay());
+     // select(By.name("bmonth"), contactData.getBMonth());
+     // type(By.name("byear"), contactData.getYear());
 
         if (creation) {
-            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+            }
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
@@ -52,6 +67,19 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
         driver.switchTo().alert().accept();
         driver.findElement(By.cssSelector("div.msgbox"));
+    }
+
+    public void clickGroup() {
+        driver.findElement(By.name("to_group")).click();
+    }
+
+    public void selectGroupFilterByGroupId(int groupId) {
+        new Select(driver.findElement(By.name("group"))).selectByValue(String.valueOf(groupId));
+    }
+
+
+    public void addGroup() {
+        driver.findElement(By.name("add")).click();
     }
 
     public void homeContact() {
@@ -84,12 +112,28 @@ public class ContactHelper extends HelperBase {
         checkContactById(contact.getId());
         submitContactDeletion();
     }
+    public void removeGroup(ContactData contact) {
+        checkContactById(contact.getId());
+        clickDeleteContactFromGroup();
+        homeContact();
+    }
+
+    public void clickDeleteContactFromGroup() {
+        driver.findElement(By.name("remove")).click();
+    }
 
     public void fillForm(ContactData contactData) {
     }
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public void addContactToGroup(ContactData contact) {
+        checkContactById(contact.getId());
+        clickGroup();
+        addGroup();
+        homeContact();
     }
 
 

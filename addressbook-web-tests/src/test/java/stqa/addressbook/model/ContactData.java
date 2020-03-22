@@ -6,7 +6,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 
@@ -66,9 +68,6 @@ public class ContactData {
     private String bmonth;
 
     @Transient
-    private String group;
-
-    @Transient
     private String allAddresses;
 
     @Transient
@@ -77,6 +76,11 @@ public class ContactData {
     @Column(name = "photo")
     @Type(type = "text")
     private String photo;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
 
     public ContactData withPhoto(File photo) {
         this.photo = photo.getPath();
@@ -143,11 +147,6 @@ public class ContactData {
 
     public ContactData withBMonth(String bmonth) {
         this.bmonth = bmonth;
-        return this;
-    }
-
-    public ContactData withGroup(String group) {
-        this.group = group;
         return this;
     }
 
@@ -236,8 +235,13 @@ public class ContactData {
         return year;
     }
 
-    public String getGroup() {
-        return group;
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
+
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
     }
 
     @Override

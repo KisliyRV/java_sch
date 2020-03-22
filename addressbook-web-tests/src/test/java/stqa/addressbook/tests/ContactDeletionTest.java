@@ -14,7 +14,7 @@ public class ContactDeletionTest extends TestBase {
     public void ensurePreconditions(){
         if (app.db().contact().size() == 0) {
             app.contact().homeContact();
-            app.contact().createContact(new ContactData().withFirstName("Dima").withGroup("[none]"));
+            app.contact().createContact(new ContactData().withFirstName("Dima"));
         }
     }
 

@@ -6,6 +6,7 @@ import com.beust.jcommander.ParameterException;
 import com.thoughtworks.xstream.XStream;
 import stqa.addressbook.model.ContactData;
 import stqa.addressbook.model.GroupData;
+import stqa.addressbook.model.Groups;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -13,6 +14,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+
+import static stqa.addressbook.tests.TestBase.app;
 
 public class ContactDataGenerator {
 
@@ -50,7 +53,8 @@ public class ContactDataGenerator {
     private static void saveCsv(List<ContactData> contacts, File file) throws IOException {
         Writer writer = new FileWriter(file);
         for (ContactData contact : contacts) {
-            writer.write(String.format("%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstName(), contact.getLastName(), contact.getAddress(), contact.getMobilePhone(), contact.getEmail(), contact.getGroup(), contact.getPhoto()));
+            Groups groups = app.db().group();
+            writer.write(String.format("%s;%s;%s;%s;%s;%s;%s\n", contact.getFirstName(), contact.getLastName(), contact.getAddress(), contact.getMobilePhone(), contact.getEmail(), contact.getPhoto()));
         }
         writer.close();
     }
@@ -69,7 +73,7 @@ public class ContactDataGenerator {
         for (int i = 0; i < count; i++) {
             contacts.add(new ContactData().withFirstName(String.format("FirstName %s", i))
                     .withLastName(String.format("LastName %s", i)).withAddress(String.format("Address %s", i)).withMobilePhone(String.format("mobilephone %s", i)).withEmail(String.format("emailaddress %s", i))
-                    .withGroup("[none]").withPhoto(new File("src/test/resources/123.png")));
+                    .withPhoto(new File("src/test/resources/123.png")));
         }
         return contacts;
     }

@@ -17,7 +17,7 @@ public class ContactModificationTest extends TestBase {
     public void ensurePreconditions(){
         if (app.db().contact().size() == 0) {
             app.contact().homeContact();
-            app.contact().createContact(new ContactData().withFirstName("Dima").withGroup("[none]"));
+            app.contact().createContact(new ContactData().withFirstName("Dima"));
         }
     }
 
@@ -28,7 +28,7 @@ public class ContactModificationTest extends TestBase {
         File photo = new File("src/test/resources/123.png");
         ContactData contact = new ContactData()
                 .withId(modifiedContact.getId()).withFirstName("Tolik").withLastName("Pult").withPhoto(photo).withAddress("test")
-                .withMobilePhone("555000").withEmail("test101@gmail.com").withYear("2001").withBDay("13").withBMonth("March").withGroup("[none]");
+                .withMobilePhone("555000").withEmail("test101@gmail.com").withYear("2001").withBDay("13").withBMonth("March");
         app.contact().modify(contact);
         Contact after = app.db().contact();
         assertThat(after.size(), equalTo(before.size()));
