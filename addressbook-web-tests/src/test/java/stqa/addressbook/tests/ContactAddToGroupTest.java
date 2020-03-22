@@ -3,7 +3,6 @@ package stqa.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import stqa.addressbook.model.Contact;
 import stqa.addressbook.model.ContactData;
 
 import java.util.Iterator;
@@ -22,9 +21,13 @@ public class ContactAddToGroupTest extends TestBase{
     @Test
     public void addContactToGroup() {
         app.goTo().homeContact();
+
+        List<ContactData> beforeContact = app.contact().getContactList();
+        List<ContactData> beforeGroup = app.contact().getGroupList();
         ContactData contactData = app.db().contact().iterator().next();
         app.contact().addContactToGroup(contactData);
-        app.goTo().homeContact();
+        List<ContactData> afterContact = app.contact().getContactList();
+        List<ContactData> afterGroup = app.contact().getGroupList();
         ContactData after = null;
         Iterator<ContactData> allContacts = app.db().contact().iterator();
 
@@ -34,8 +37,9 @@ public class ContactAddToGroupTest extends TestBase{
                break;
             }
         }
+        app.goTo().homeContact();
+        Assert.assertEquals(contactData.getGroups().size(), after.getGroups().size());
 
-        Assert.assertEquals(contactData.getGroups().size() + 1, after.getGroups().size());
 
     }
 }

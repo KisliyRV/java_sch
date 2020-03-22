@@ -174,4 +174,22 @@ public class ContactHelper extends HelperBase {
         return new ContactData().withId(contact.getId()).withFirstName(firstname).withLastName(lastname)
                 .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
     }
+
+    public List<ContactData> getContactList() {
+        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+        SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        List<ContactData> result = session.createQuery( "from ContactData where deprecated = '0000-00-00'" ).list();
+        session.close();
+        return result;
+    }
+
+    public List<ContactData> getGroupList() {
+        final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+        SessionFactory sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        List<ContactData> result = session.createQuery("from GroupData").list();
+        session.close();
+        return result;
+    }
 }
