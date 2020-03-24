@@ -77,6 +77,32 @@ public class ContactHelper extends HelperBase {
         new Select(driver.findElement(By.name("group"))).selectByValue(String.valueOf(groupId));
     }
 
+    public void selectGroup(ContactData contactData, boolean selection) {
+
+        int contactGroupSize = contactData.getGroups().size();
+        int totalDBGroupSize = app.db().group().size();
+        if (selection) {
+            if (contactGroupSize == 0 || contactGroupSize == totalDBGroupSize) {
+                Random random = new Random();
+                app.goTo().groupPage();
+                app.group().create(new GroupData().withName("test" + random.nextInt(10)));
+                app.goTo().homeContact();
+                checkContactById(contactData.getId());
+
+                Groups totalGroup = app.db().group();
+                Groups totalContactGroup =  contactData.getGroups();
+                Set<GroupData> contactNotInGroup = Sets.difference(totalGroup, totalContactGroup);
+                new Select(driver.findElement(By.name("to_group"))).selectByValue(String.valueOf(contactNotInGroup.iterator().next().getId()));
+            } else {
+                Groups totalGroup = app.db().group();
+                Groups totalContactGroups =  contactData.getGroups();
+                Set<GroupData> contactNotInGroup = Sets.difference(totalGroup, totalContactGroups);
+                new Select(driver.findElement(By.name("to_group"))).selectByValue(String.valueOf(contactNotInGroup.iterator().next().getId()));
+            }
+
+        }
+    }
+
 
     public void addGroup() {
         driver.findElement(By.name("add")).click();
@@ -132,6 +158,7 @@ public class ContactHelper extends HelperBase {
     public void addContactToGroup(ContactData contact) {
         checkContactById(contact.getId());
         clickGroup();
+        selectGroup(contact, true);
         addGroup();
         homeContact();
     }

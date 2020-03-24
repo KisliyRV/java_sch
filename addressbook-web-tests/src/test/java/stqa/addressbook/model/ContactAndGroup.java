@@ -19,15 +19,15 @@ public class ContactAndGroup extends ForwardingSet<ContactAndGroupData> {
         return delegate;
     }
 
-    public ContactAndGroup withAdded(ContactAndGroupData contactsInGroup) {
+    public ContactAndGroup withAdded(ContactAndGroupData contactAndGroup) {
         ContactAndGroup contactsInGroups = new ContactAndGroup(this);
-        contactsInGroups.add(contactsInGroup);
+        contactsInGroups.add(contactAndGroup);
         return contactsInGroups;
     }
 
-    public ContactAndGroup without(ContactAndGroupData contactsInGroup) {
+    public ContactAndGroup without(ContactAndGroupData contactAndGroup) {
         ContactAndGroup contactsInGroups = new ContactAndGroup(this);
-        contactsInGroups.remove(contactsInGroup);
+        contactsInGroups.remove(contactAndGroup);
         return contactsInGroups;
     }
 }

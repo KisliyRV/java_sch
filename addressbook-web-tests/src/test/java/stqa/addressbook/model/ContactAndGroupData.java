@@ -8,7 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "address_in_groups")
 
-public class ContactAndGroupData {
+public class ContactAndGroupData extends ContactData {
 
     @Id
     @Column(name = "id")
