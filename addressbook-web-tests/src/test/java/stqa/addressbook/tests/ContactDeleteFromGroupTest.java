@@ -79,13 +79,6 @@ public class ContactDeleteFromGroupTest extends TestBase{
 
             assertThat(after.getGroups(),
                     equalTo(contactData.getGroups().without(beforeContactGroups.iterator().next())));
-
-            System.out.println("==============================");
-            System.out.println("BEFORE: " + contactData);
-            System.out.println(contactData.getGroups());
-            System.out.println("AFTER: " + after);
-            System.out.println(after.getGroups());
-            System.out.println("==============================");
         }
 
     }

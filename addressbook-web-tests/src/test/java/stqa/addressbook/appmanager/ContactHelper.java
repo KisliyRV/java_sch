@@ -89,6 +89,7 @@ public class ContactHelper extends HelperBase {
                     if (contact.getGroups().size() < totalDBGroupSize) {
                         homeContact();
                         editContactById(contact.getId());
+                        homeContact();
                         new Select(driver.findElement(By.name("group"))).selectByValue(String.valueOf(getGroupListContact(contact.getGroups()).iterator().next().getId()));
                         counter++;
                         break;

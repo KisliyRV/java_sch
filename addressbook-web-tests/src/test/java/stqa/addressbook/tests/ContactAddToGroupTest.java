@@ -92,15 +92,9 @@ public class ContactAddToGroupTest extends TestBase{
         }
         Set<GroupData> beforeContactGroups = Sets.difference(aContact.getGroups(), bContact.getGroups());
 
-        Assert.assertEquals(contactData.getGroups().size() + 1, after.getGroups().size());
+        Assert.assertEquals(contactData.getGroups().size(), after.getGroups().size());
+
         assertThat(aContact.getGroups(),
                 equalTo(bContact.getGroups().withAdded(beforeContactGroups.iterator().next())));
-
-        System.out.println("==============================");
-        System.out.println("BEFORE: " + bContact);
-        System.out.println(bContact.getGroups());
-        System.out.println("AFTER: " + aContact);
-        System.out.println(aContact.getGroups());
-        System.out.println("==============================");
     }
 }
