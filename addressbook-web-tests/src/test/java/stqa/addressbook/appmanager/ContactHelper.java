@@ -17,7 +17,6 @@ import stqa.addressbook.model.GroupData;
 import stqa.addressbook.model.Groups;
 
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 import static stqa.addressbook.tests.TestBase.app;
@@ -81,28 +80,36 @@ public class ContactHelper extends HelperBase {
 
         int contactGroupSize = contactData.getGroups().size();
         int totalDBGroupSize = app.db().group().size();
+        int counter = 0;
         if (selection) {
             if (contactGroupSize == 0 || contactGroupSize == totalDBGroupSize) {
-                Random random = new Random();
-                app.goTo().groupPage();
-                app.group().create(new GroupData().withName("test" + random.nextInt(10)));
-                app.goTo().homeContact();
-                checkContactById(contactData.getId());
 
-                Groups totalGroup = app.db().group();
-                Groups totalContactGroup =  contactData.getGroups();
-                Set<GroupData> contactNotInGroup = Sets.difference(totalGroup, totalContactGroup);
-                new Select(driver.findElement(By.name("to_group"))).selectByValue(String.valueOf(contactNotInGroup.iterator().next().getId()));
+                List<ContactData> contactList = app.contact().getContactList();
+                for (ContactData contact: contactList) {
+                    if (contact.getGroups().size() < totalDBGroupSize) {
+                        homeContact();
+                        editContactById(contact.getId());
+                        new Select(driver.findElement(By.name("group"))).selectByValue(String.valueOf(getGroupListContact(contact.getGroups()).iterator().next().getId()));
+                        counter++;
+                        break;
+                    }
+                }
+                if (counter == 0) {
+                    app.goTo().homeContact();
+                    app.contact().createContact(new ContactData().withFirstName("Test").withLastName("Mac"));
+                    addContactToGroup(contactData);
+                }
             } else {
-                Groups totalGroup = app.db().group();
                 Groups totalContactGroups =  contactData.getGroups();
-                Set<GroupData> contactNotInGroup = Sets.difference(totalGroup, totalContactGroups);
-                new Select(driver.findElement(By.name("to_group"))).selectByValue(String.valueOf(contactNotInGroup.iterator().next().getId()));
+                new Select(driver.findElement(By.name("group"))).selectByValue(String.valueOf(getGroupListContact(totalContactGroups).iterator().next().getId()));
             }
-
         }
     }
 
+    public  Set<GroupData> getGroupListContact(Groups totalContactGroups) {
+        Groups totalGroups = app.db().group();
+        return Sets.difference(totalGroups, totalContactGroups);
+    }
 
     public void addGroup() {
         driver.findElement(By.name("add")).click();
