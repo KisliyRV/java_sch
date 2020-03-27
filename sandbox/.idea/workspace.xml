@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98884f50-fe6b-4dc8-b5c8-d1cfe55f8d0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/HttpSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-test/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-test/src/test/resources/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/src/test/resources/testng.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -57,38 +55,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../mantis-test/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
+            <state relative-caret-position="380">
+              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1831#1832#0" expanded="true" />
-                <element signature="e#1860#1861#0" expanded="true" />
-                <element signature="e#1338#1339#0" expanded="true" />
-                <element signature="e#1382#1383#0" expanded="true" />
-                <element signature="e#1427#1428#0" expanded="true" />
-                <element signature="e#1476#1477#0" expanded="true" />
+                <element signature="e#1068#1069#0" expanded="true" />
+                <element signature="e#1162#1163#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/HttpSession.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="42" column="62" lean-forward="true" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
+            <state relative-caret-position="170">
+              <caret line="28" column="82" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,19 +91,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/resources/testng.xml">
+        <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/resources/local.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="120">
+              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+              <folding>
+                <element signature="e#155#156#0" expanded="true" />
+                <element signature="e#196#197#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,9 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/stqa/sandbox/PrimeTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/stqa/sandbox/Primes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/stqa/sandbox/Collections.java" />
         <option value="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/stqa/addressbook/tests/AddressBookTest.java" />
         <option value="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/stqa/addressbook/appmanager/GroupHelper.java" />
         <option value="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/stqa/addressbook/appmanager/NavigationHelper.java" />
@@ -199,11 +185,14 @@
         <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/ApplicationManager.java" />
         <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/TestBase.java" />
         <option value="$PROJECT_DIR$/../mantis-test/src/test/resources/testng.xml" />
-        <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java" />
         <option value="$PROJECT_DIR$/../mantis-test/build.gradle" />
         <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/HttpSession.java" />
         <option value="$PROJECT_DIR$/../mantis-test/src/test/resources/local.properties" />
         <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/LoginTests.java" />
+        <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java" />
+        <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RehistrationHelper.java" />
+        <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java" />
+        <option value="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java" />
       </list>
     </option>
   </component>
@@ -293,13 +282,14 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="stqa.sandbox" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../addressbook-web-tests/src/test/resources" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="mantis.appmanager" />
       <recent name="stqa.addressbook.tests" />
       <recent name="stqa.addressbook.appmanager" />
       <recent name="stqa.addressbook" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/../addressbook-web-tests/src/test/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -314,7 +304,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTests">
+  <component name="RunManager" selected="TestNG.RegistrationTests">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="stqa.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -382,24 +372,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HbContactConnectionTest.testHbContactConnection" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="stqa.addressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="stqa.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="stqa.addressbook.tests.HbContactConnectionTest" />
-      <option name="METHOD_NAME" value="testHbContactConnection" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-test.test" />
       <extension name="coverage">
@@ -417,21 +389,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegistrationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mantis-test.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mantis.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mantis.tests" />
+      <option name="MAIN_CLASS_NAME" value="mantis.tests.RegistrationTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ContactDataGenerator" />
       <item itemvalue="TestNG.ContactAddToGroupTest" />
       <item itemvalue="TestNG.ContactDeleteFromGroupTest" />
-      <item itemvalue="TestNG.HbContactConnectionTest.testHbContactConnection" />
       <item itemvalue="TestNG.ContactAddToGroupTest.addContactToGroup" />
       <item itemvalue="TestNG.LoginTests" />
+      <item itemvalue="TestNG.RegistrationTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.RegistrationTests" />
         <item itemvalue="TestNG.LoginTests" />
         <item itemvalue="TestNG.ContactAddToGroupTest" />
         <item itemvalue="TestNG.ContactDeleteFromGroupTest" />
         <item itemvalue="TestNG.ContactAddToGroupTest.addContactToGroup" />
-        <item itemvalue="TestNG.HbContactConnectionTest.testHbContactConnection" />
       </list>
     </recent_temporary>
   </component>
@@ -493,7 +482,7 @@
     <frame x="0" y="23" width="1436" height="819" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2697274" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21090387" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -528,27 +517,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/4.0.0-alpha-4/a0ea0bbbd371fe529f4fb7f393c1a4ca4ebc8a23/selenium-api-4.0.0-alpha-4-sources.jar!/org/openqa/selenium/By.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="493" selection-start-line="493" selection-end-line="493" />
-          <folding>
-            <element signature="e#4301#4302#0" expanded="true" />
-            <element signature="e#4348#4349#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/28.2-jre/79474f7d08b9a8d03f827161825711d9d62ef09a/guava-28.2-jre-sources.jar!/com/google/common/collect/ImmutableMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
-          <folding>
-            <element signature="e#5259#5260#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-remote-driver/4.0.0-alpha-4/5e4214ff77f0876cbc34c5e633c878a2954eebcc/selenium-remote-driver-4.0.0-alpha-4-sources.jar!/org/openqa/selenium/remote/DriverCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -935,22 +903,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1831#1832#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1382#1383#0" expanded="true" />
-            <element signature="e#1427#1428#0" expanded="true" />
-            <element signature="e#1476#1477#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../mantis-test/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -974,10 +926,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/HttpSession.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="42" column="62" lean-forward="true" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
+        <state relative-caret-position="170">
+          <caret line="28" column="82" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding>
+            <element signature="e#155#156#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1068#1069#0" expanded="true" />
+            <element signature="e#1162#1163#0" expanded="true" />
           </folding>
         </state>
       </provider>
