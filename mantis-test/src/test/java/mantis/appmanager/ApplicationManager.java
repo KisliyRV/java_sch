@@ -46,17 +46,11 @@ public class ApplicationManager {
         driver.quit();
     }
 
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+    public HttpSession newSession() {
+        return new HttpSession(this);
     }
 
-    public WebDriver.TargetLocator switchTo() {
-        return null;
+    public String getProperty(String key) {
+       return properties.getProperty(key);
     }
-
 }
