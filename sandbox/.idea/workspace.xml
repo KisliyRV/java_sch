@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98884f50-fe6b-4dc8-b5c8-d1cfe55f8d0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/HelperBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/MailHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/model/MailMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-test/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-test/src/test/resources/config_inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-test/src/test/resources/config_inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -63,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+            <state relative-caret-position="275">
+              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#206#207#0" expanded="true" />
@@ -89,7 +81,7 @@
         <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="23" column="66" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
+              <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#251#252#0" expanded="true" />
@@ -535,15 +527,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RegistrationTests - 2020.03.27 at 13h 55m 59s.xml">
-      <configuration name="RegistrationTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RegistrationTests - 2020.03.27 at 13h 56m 52s.xml">
-      <configuration name="RegistrationTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="RegistrationTests - 2020.03.27 at 14h 00m 26s.xml">
-      <configuration name="RegistrationTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="RegistrationTests - 2020.03.27 at 14h 00m 27s.xml">
       <configuration name="RegistrationTests" configurationId="TestNG" />
     </history-entry>
@@ -563,6 +546,15 @@
       <configuration name="RegistrationTests" configurationId="TestNG" />
     </history-entry>
     <history-entry file="RegistrationTests - 2020.03.27 at 15h 36m 55s.xml">
+      <configuration name="RegistrationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RegistrationTests - 2020.03.27 at 15h 37m 40s.xml">
+      <configuration name="RegistrationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RegistrationTests - 2020.03.27 at 15h 38m 24s.xml">
+      <configuration name="RegistrationTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="RegistrationTests - 2020.03.27 at 15h 38m 44s.xml">
       <configuration name="RegistrationTests" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -589,7 +581,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287483" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928263" visible="true" weight="0.3287483" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928263" weight="0.3287483" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39889959" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1023,7 +1015,7 @@
     <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/appmanager/RegistrationHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="23" column="66" selection-start-line="23" selection-start-column="66" selection-end-line="23" selection-end-column="66" />
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="61" selection-end-line="23" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#251#252#0" expanded="true" />
@@ -1034,8 +1026,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../mantis-test/src/test/java/mantis/tests/RegistrationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+        <state relative-caret-position="275">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#206#207#0" expanded="true" />
