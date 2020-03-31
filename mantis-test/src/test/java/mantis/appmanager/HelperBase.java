@@ -12,7 +12,7 @@ import static mantis.tests.TestBase.app;
 
 public class HelperBase {
 
-    private final ApplicationManager app;
+    public final ApplicationManager app;
     protected WebDriver driver;
 
     public HelperBase(ApplicationManager app) {
