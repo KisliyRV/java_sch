@@ -39,9 +39,9 @@ public class JamesHelper {
         return result.trim().equals("User " + name + " exit");
     }
 
-    public void createUser(String name, String password){
+    public void createUser(String name, String passwd){
         initTelnetSession();
-        write("adduser " + name + " " + password);
+        write("adduser " + name + " " + passwd);
         String result = readUntil("User " + name + " added");
         closeTelnetSession();
     }
