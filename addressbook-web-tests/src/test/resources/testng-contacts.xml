@@ -4,9 +4,9 @@
     <test name="Contacts">
         <classes>
             <class name="stqa.addressbook.tests.ContactCreationTest" />
-
+            <class name="stqa.addressbook.tests.ContactModificationTest" />
             <class name="stqa.addressbook.tests.ContactDeletionTest" />
-
+            <class name="stqa.addressbook.tests.ContactAddressTest" />
             <class name="stqa.addressbook.tests.ContactEmailAddressTest" />
             <class name="stqa.addressbook.tests.ContactPhonesTest" />
         </classes>
