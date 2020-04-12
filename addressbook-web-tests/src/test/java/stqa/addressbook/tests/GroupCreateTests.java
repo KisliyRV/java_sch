@@ -47,7 +47,7 @@ public class GroupCreateTests extends TestBase {
     verifyGroupListUI();
   }
 
-  @Test
+/*  @Test
   public void testFallGroupCreation() {
     app.goTo().groupPage();
     Groups before = app.group().all();
@@ -58,4 +58,5 @@ public class GroupCreateTests extends TestBase {
     assertThat(after, equalTo(before ));
     verifyGroupListUI();
   }
+  */
 }
