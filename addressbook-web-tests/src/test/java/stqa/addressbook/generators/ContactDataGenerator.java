@@ -5,7 +5,6 @@ import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import com.thoughtworks.xstream.XStream;
 import stqa.addressbook.model.ContactData;
-import stqa.addressbook.model.GroupData;
 import stqa.addressbook.model.Groups;
 
 import java.io.File;

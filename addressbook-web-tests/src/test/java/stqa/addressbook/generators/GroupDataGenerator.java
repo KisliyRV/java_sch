@@ -3,7 +3,6 @@ package stqa.addressbook.generators;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
-import com.sun.javafx.tools.packager.PackagerException;
 import com.thoughtworks.xstream.XStream;
 import stqa.addressbook.model.GroupData;
 import java.io.*;
