@@ -26,13 +26,16 @@ task testGroups(type: Test) {
     useTestNG(){
         suites 'src/test/resources/testng-groups.xml'
     }
-    if (projects.hasProperty('browser')){
+    if (project.hasProperty('browser')){
         systemProrerty 'browser', "${browser}"
     }
-    if (projects.hasProperty('target')){
+    if (project.hasProperty('platform')) {
+        systemProperty 'platform', "${paltform}"
+    }
+    if (project.hasProperty('target')){
         systemProrerty 'target', "${target}"
     }
-    if (projects.hasProperty('verifyUI')){
+    if (project.hasProperty('verifyUI')){
         systemProrerty 'verifyUI', "${verifyUI}"
     }
 }
@@ -41,13 +44,16 @@ task testContacts(type: Test) {
     useTestNG(){
         suites 'src/test/resources/testng-contacts.xml'
     }
-    if (projects.hasProperty('browser')){
+    if (project.hasProperty('browser')){
         systemProrerty 'browser', "${browser}"
     }
-    if (projects.hasProperty('target')){
+    if (project.hasProperty('platform')) {
+        systemProperty 'platform', "${paltform}"
+    }
+    if (project.hasProperty('target')){
         systemProrerty 'target', "${target}"
     }
-    if (projects.hasProperty('verifyUI')){
+    if (project.hasProperty('verifyUI')){
         systemProrerty 'verifyUI', "${verifyUI}"
     }
 }
